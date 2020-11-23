@@ -129,7 +129,7 @@ eList <- getGEOSuppFiles("GSE145358")
 tarArchive <- rownames(eList)[1]
 #open supp.files as table
 data <- read.table(tarArchive, header=T)
-PGC_DC <- read.table(file = 'https://www.dropbox.com/s/njqwesxrqr09395/challenge%20VS%20control_ALL_Differentially_regulated_genes.txt?dl=1',sep = '\t', header = TRUE) 
+PGC_DC <- read.table(file = 'https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/challenge%20VS%20control_ALL_Differentially_regulated_genes.txt',sep = '\t', header = TRUE) 
   
 #plot 1 for downregulated genes
 PGC_DC_sdown <- na.omit(PGC_DC[PGC_DC$padj<.05 & PGC_DC$log2FoldChange<=(-0.5),]) 
