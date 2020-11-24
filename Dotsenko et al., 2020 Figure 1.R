@@ -28,7 +28,7 @@ library(cowplot)
 
 #===========================================Fig 1.; panels A&B; histomorphological parameters of Samples plots==========================================
 
-var <- read.delim('https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/Histomorphological%20parameters.txt',sep = '\t', header=T) #open file with histomorphological parameters of Samples
+var <- read.delim('https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/data%20files/Histomorphological%20parameters.txt',sep = '\t', header=T) #open file with histomorphological parameters of Samples
 var$Number <- str_replace_all(as.character(var$SAMPLE),'[EOSNORMBL"]', "") #extract the Number of the Sample, to match paired Samples on the plot 
 text<-"VH:CrD"
 text2<-"IELs per 100 EC"
@@ -90,7 +90,7 @@ p2
 
 #=======================================================Fig 1.; panel C; PCA analysis ==========================================
 #open the transformed raw counts
-trcounts<-read.table(file = 'https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/DESeq2_vsd_transformed_counts.tsv',sep = '\t', header = TRUE) 
+trcounts<-read.table(file = 'https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/data%20files/DESeq2_vsd_transformed_counts.tsv',sep = '\t', header = TRUE) 
 
 alldata_sub_t<-t(trcounts)
 rownames(alldata_sub_t) <- colnames(trcounts)
@@ -129,7 +129,7 @@ eList <- getGEOSuppFiles("GSE145358")
 tarArchive <- rownames(eList)[1]
 #open supp.files as table
 data <- read.table(tarArchive, header=T)
-PGC_DC <- read.table(file = 'https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/challenge%20VS%20control_ALL_Differentially_regulated_genes.txt',sep = '\t', header = TRUE) 
+PGC_DC <- read.table(file = 'https://raw.githubusercontent.com/valeriia-dotsenko/Dotsenko-et-al-2020-Figures/main/data%20files/challenge%20VS%20control_ALL_Differentially_regulated_genes.txt',sep = '\t', header = TRUE) 
   
 #plot 1 for downregulated genes
 PGC_DC_sdown <- na.omit(PGC_DC[PGC_DC$padj<.05 & PGC_DC$log2FoldChange<=(-0.5),]) 
